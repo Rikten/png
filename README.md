@@ -6,10 +6,11 @@ External libs used in this project:
 * some small code from libpng.org for crc-32 calculations
 
 ##Run
+To read about usage:
 ```bash
 git clone https://github.com/Rikten/png.git
 make
-./a.out [options] filename
+./a.out
 ```
 
 ##Todo

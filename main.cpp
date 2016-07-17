@@ -13,7 +13,7 @@ using std::string;
 
 int main(int argc, char** argv)
 {
-	const string FILENAME = "../out.png";
+	const string FILENAME = "out.png";
 
 	PNG image;
 	bool invert = false, 
@@ -24,6 +24,15 @@ int main(int argc, char** argv)
 
 	// floating-point format for cout
 	cout << fixed << showpoint << setprecision(2);
+
+	if (argc == 1)
+	{
+		cout << "usage: ./a.out [opts] filename\n"
+			 << "[-i] invert RGB values in image\n"
+			 << "[-s] find & perform size optimizations (RGB->grayscale, etc.)\n"
+			 << "[-d] (currently on vacation) display image\n";
+		exit(0);
+	}
 
 	// get list of tasks to be done
 	// TODO: can be done in a more c++ way

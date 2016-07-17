@@ -138,7 +138,7 @@ bool contains(const vector<T>& vec, T item)
 // for convenience (saves ~3 lines per error handle)
 void quit(string msg)
 {
-	cerr << "Error: " << msg;
+	cerr << "error: " << msg;
 	exit(1);
 }
 
