@@ -1,5 +1,5 @@
 #About
-An decoder/encoder for png images written in c++.
+An decoder/encoder for png images written in c++. This project was started during my spring semester of 2016 as an intellectual exercise.
 
 External libs used in this project:
 * zlib, for compression/decompression
