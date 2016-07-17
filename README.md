@@ -6,12 +6,13 @@ External libs used in this project:
 * some small code from libpng.org for crc-32 calculations
 
 ##Run
-To read about usage:
 ```bash
 git clone https://github.com/Rikten/png.git
+cd png
 make
 ./a.out
 ```
+Usage information will be displayed.
 
 ##Todo
 * Re-implement image display using OpenGL (a pre-github version did this using glut (now deprecated) for context creation)
