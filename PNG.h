@@ -29,6 +29,10 @@ const array<byte, 8> PNG_HEADER = {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0
 
 const vector<string> KNOWN_CHUNKS = {"IHDR", "IDAT", "IEND"};
 
+const vector<byte> IHDR = {0x49, 0x48, 0x44, 0x52};
+const vector<byte> IDAT = {0x49, 0x44, 0x41, 0x54};
+const vector<byte> IEND = {0x49, 0x45, 0x4E, 0x44};
+
 class PNG
 {
 private:
@@ -205,8 +209,8 @@ void PNG::save(string f)
 	deflatedData = compress(filteredData);
 
 	// create new IHDR chunk ------------------------------------------
-	// TODO: make name set by string?, make this a function
-	nextChunk.setName( { 0x49, 0x48, 0x44, 0x52 } );
+	// TODO: make this a function
+	nextChunk.setName(IHDR);
 	vector<byte> nextVal;
 
 	// IHDR Data mWidth/mHeight
@@ -234,7 +238,7 @@ void PNG::save(string f)
 
 	// create IDAT ------------------------------------------------
 	nextChunk.reset();
-	nextChunk.setName( { 0x49, 0x44, 0x41, 0x54 } );
+	nextChunk.setName(IDAT);
 
 	nextChunk.setData(deflatedData);
 	nextChunk.setCrc( toVec( crc( nextChunk.getCrcData() ) ) );
@@ -243,7 +247,7 @@ void PNG::save(string f)
 
 	// create IEND ------------------------------------------------
 	nextChunk.reset();
-	nextChunk.setName( { 0x49, 0x45, 0x4E, 0x44 } );
+	nextChunk.setName(IEND);
 
 	nextChunk.setCrc( { 0xAE, 0x42, 0x60, 0x82 } );
 
