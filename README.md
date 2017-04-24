@@ -7,7 +7,7 @@ External libs used in this project:
 
 ##Run
 ```bash
-git clone https://github.com/Rikten/png.git
+git clone https://github.com/luctalatinian/png.git
 cd png
 make
 ./a.out
